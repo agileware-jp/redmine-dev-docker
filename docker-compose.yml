@@ -1,0 +1,13 @@
+version: '3.4'
+services:
+  redmine:
+    build: .
+    volumes:
+      - ${REDMINE_ROOT}:/usr/src/redmine
+      - ./database.yml.sqlite3:/usr/src/redmine/config/database.yml
+      - gems:/usr/local/bundle
+    ports:
+      - "3000:3000"
+
+volumes:
+  gems:
